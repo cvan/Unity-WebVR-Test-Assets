@@ -2,20 +2,59 @@
 <html lang="en-us">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Unity WebGL Player | %UNITY_WEB_NAME%</title>
   <link rel="stylesheet" href="TemplateData/style.css">
-  <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <script src="TemplateData/UnityProgress.js"></script>
+  <style>
+    .btn {
+      background: rgba(70,147,217,0.85);
+      border: 0;
+      display: inline-block;
+      cursor: pointer;
+      font-family: inherit;
+      margin-left: 0.75rem;
+      transition: 0.075s background-color ease-in-out;
+      vertical-align: top;
+    }
+    .btnEnterVr {
+      background-image: url(TemplateData/vr-enter.svg);
+      background-position: 50% 7px;
+      background-repeat: no-repeat;
+      background-size: 45px auto;
+      color: #fff;
+      font-size: 0.5rem;
+      text-indent: -9999px;
+      text-transform: uppercase;
+      height: 45px;
+      min-width: 60px;
+      padding: 0 0.75rem;
+      position: relative;
+    }
+    .btnResetSensor {
+      color: #fff;
+      font-size: 1em;
+      font-family: inherit;
+      line-height: 45px;
+      padding: 0 1rem;
+    }
+    .btn:hover {
+      background-color: rgb(70,147,217);
+    }
+    .btn:focus {
+      background-color: rgb(33,99,161);
+      outline: 0;
+    }
+  </style>
 </head>
 <body class="template">
   <p class="header"><span>Unity WebGL Player | </span>%UNITY_WEB_NAME%</p>
   <div class="template-wrap clear">
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="%UNITY_HEIGHT%" width="%UNITY_WIDTH%"></canvas>
+    <canvas class="emscripten" id="canvas" height="%UNITY_HEIGHT%" width="%UNITY_WIDTH%"></canvas>
     <div class="logo"></div>
     <div class="fullscreen">
-      <img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="vrFullScreen()" />
-      <div style="margin-left:30px;background:rgb(70,147,217);color:white" class="title" onclick="vrSensor && vrSensor.resetSensor()">Reset Sensor</div>
+      <button id="btnEnterVr" class="btn btnEnterVr" title="Enter VR">Enter VR</button>
+      <button id="btnResetSensor" class="btn btnResetSensor" title="Reset Sensor">Reset Sensor</button>
     </div>
     <div class="title">%UNITY_WEB_NAME%</div>
   </div>
